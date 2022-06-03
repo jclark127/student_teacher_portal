@@ -1,29 +1,30 @@
-package com.example.models;
+package com.example.student_teacher_portal.models;
 
 
 import javax.persistence.*;
 
 @Entity
+@Table(name="users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
-    String first_name;
+    @Column (nullable = false, length = 100)
+    private String first_name;
 
-    @Column
-    String last_name;
+    @Column (nullable = false, length = 100)
+    private String last_name;
 
-    @Column
-    String email;
+    @Column (nullable = false, length = 100)
+    private String email;
 
-    @Column
-    String password;
+    @Column (nullable = false, length = 100)
+    private String password;
 
-    @Column
-    boolean isStudent;
+    @Column (nullable = false, length = 100)
+    private boolean isStudent;
 
     public User(long id, String first_name, String last_name, String email, String password, boolean isStudent) {
         this.id = id;
