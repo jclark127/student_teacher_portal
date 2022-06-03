@@ -26,6 +26,20 @@ public class User {
     @Column (nullable = false, length = 100)
     private boolean isStudent;
 
+    @OneToOne(orphanRemoval = true)
+    @JoinTable(name = "users_student",
+            joinColumns = @JoinColumn(name = "user_null"),
+            inverseJoinColumns = @JoinColumn(name = "student_id"))
+    private Student student;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
     public User(long id, String first_name, String last_name, String email, String password, boolean isStudent) {
         this.id = id;
         this.first_name = first_name;
